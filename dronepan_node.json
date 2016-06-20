@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dronepan-dev",
+  "private_key_id": "2e8e6f8b73f332e3f0346eb6ce33d4328b6985db",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnQyexnRRkDLSm\nCjr32+wl4EYsF/nJiDIAjRN/aD3hZcxfLSVbpd4/56leDqPk3j6tlQZ2TRODWmf3\ndgCErHXv/n3DePznJvF2W6UdnlwGrKA2iSy+FV+4uRWJf9QZJvOBsRNTCPttykXu\nQ3AZhzfG/m41C/Tzx9oHdMVfnRfhH6nRIvmfEMtG1xVyCcPZeECf5rV88vQWCGLb\nf8nWfP78d1VV0Vj+uXPTUL1j5ENBk208OwrtkrforFVL+rOKVU8pSH54756VMbzi\n0985/I0+zVrb9ekAie+kWLS7cQdOhw8YARaT+BhlduOcziwT6BSUh/n2HBAfhh5X\nSbk/GbTrAgMBAAECggEADyjzDBIkqvzL0tDSj2yLdtNhCNYTecSyY4Jl5gJYuXk0\nkNvSqv/ZqQkiPLgu+qt6GtmLAGX0As/K5I75dQz8k4gJdhIdOgY5lHSx/oE/7grv\naoH8YC4nwuJjpVbErpLtNzAJhFkoEMdolzPdkTLER3EAJCa1SPMwO8TFrujaJTlH\n6+7PK8FJNxHF0s14NXbpZFNNnTqfQLRtt+3TzEdryFpvQ2XpD3iyHA7K3deNZStw\ny9XNgMKb4scMCQKy1mLmOSJ5p1N06Uhn16Rmy1o3N60ksCwBEsMh5epTJ1FkQaF/\nElCxPc2lPcgN/xvKY8dv6hNvbWiCbgO8hCbAjhmVYQKBgQDXuVue6oJyvhnHqY9o\n/Y6pp82uljzz0zlC2eGpe1JW3gwJtrR6BHYf41XJ+fz2RNUF6pMPZM6OLeZmwvzm\nodAR5GvzZJjA4NbJZ45xxeAAWrBIB3PF/og67j3iT/EFcXW2l56yQZmmk0S9cDQW\nxB+1frva5lePqPG149+h9TM5LwKBgQDGfYs6h7b8+ru2voJ/+AzOgwO9RHsx8D9r\nU1my+D+DaMvZw8gI+zi+cTv9Ckt+FmTZIMH0s1eHc0buXDl0QLWnoewcU7sv5ydb\nmnagUcMkKx94qAByBBEFLC7F799bjHxetzb38/JlmyW/HufwcEkpD8qta3tqSdZT\nFElOarwZBQKBgDTICm3IjSBL+PzMNOWIXHaQMxgLdGBoBvOfYcJZBR1x+NoLlP7h\nxpEoy12+x7DtyH1JFrBGhu9stZnhDYXUg5dNH0iPDXzrxkHDD6wwsQ0FI2qMQDxq\neaSJlCSiUKN3TkjdshuFR3XlRIVhRa1oUSXUG1yEzVm+CV3qolX7K4xLAoGAdtVK\nuavuvd5O68V606pp4GlHn9ST/P3cuiCYnzFItR/Ui3dPFzFwc3PPelrjf4Vgsy2N\ncTa9vHYjjSjhrNvg5Y9nkD4A31kAkzMSukC5F7pJiS7rtVcB6ZreFdraWjDtdLcz\nzZbbFEGig525NpXC9zZhHRowNR4nlm2axbvZCRECgYEAj3inxpANnSt88p7cuGOT\nm6ERom3S+7JsAjGV/HQ4XIGdZV3VaB4bNq6BkfM1xT3jaOvDL2cFYWKdHrUQu0kp\nFZaHEJ6Viv/hWZcklA9JO7v7k9w9u2QcTVHS6Hi5iXnaKNtDu/iWVeBB0X/ZCzuf\nGxkiPcn+6GyK8hd+rnB8Pt8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dronepan-nodejs@dronepan-dev.iam.gserviceaccount.com",
+  "client_id": "102671808383364629695",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dronepan-nodejs%40dronepan-dev.iam.gserviceaccount.com"
+}

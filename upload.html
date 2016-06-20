@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Storage Example</title>
+
+  <!-- Material Design Theming -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <link rel="stylesheet" href="main.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script type="text/javascript">
+    // Firebase config.
+    var config = {
+      apiKey: "AIzaSyCSAa6D06yf2SGps0IlIn4B0p4diJd2MG8",
+      authDomain: "dronepan-dev.firebaseapp.com",
+      databaseURL: "https://dronepan-dev.firebaseio.com",
+      storageBucket: "dronepan-dev.appspot.com",
+    };
+    var app = firebase.initializeApp(config);
+    var auth = app.auth();
+    var storageRef = firebase.storage().ref();
+    var databaseRef = firebase.database().ref();
+    var uid = "";
+    
+    initApp = function() {
+      auth.onAuthStateChanged(function(user) {
+        if (user) {
+          uid = user.uid;
+        } else {
+          document.location.href = "./index.html";
+        }
+      });
+    }
+  </script>
+
+</head>
+<body>
+
+
+        <!-- Container for the demo -->
+
+          <h2>Upload a file</h2>
+
+          <p>Select a file below. When it is uploaded, a link will be displayed to the uploaded file.</p>
+          <h6>Choose File</h6>
+          <input type="file" id="file" name="file"/>
+          <h6>File URL:</h6>
+          <span id="linkbox"></span>
+          
+          <div class="progress" id="progressContainer">
+            <div id="progress" class="determinate" style="width: 10%"></div>
+          </div>
+      
+  <script>
+
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      var file = evt.target.files[0];
+
+      var metadata = {
+        'contentType': file.type
+      };
+      
+      document.getElementById("progressContainer").style.display = "block";
+
+      // Push to child path.
+      var uploadTask = storageRef.child('images/' + uid + '/' + file.name).put(file, metadata);
+
+      // Listen for errors and completion of the upload.
+      // [START oncomplete]
+      uploadTask.on('state_changed', function(snapshot) {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        
+        document.getElementById("progress").style.width = progress + "%";
+        
+      }, function(error) {
+        // [START onfailure]
+        console.error('Upload failed:', error);
+        // [END onfailure]
+      }, function() {
+        console.log('Uploaded',uploadTask.snapshot.totalBytes,'bytes.');
+        console.log(uploadTask.snapshot.metadata);
+        var url = uploadTask.snapshot.metadata.downloadURLs[0];
+        console.log('File available at', url);
+        // [START_EXCLUDE]
+        document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
+        // [END_EXCLUDE]
+        
+        var uploadsRef = databaseRef.child("uploads");
+        var uploadsRefPush = uploadsRef.push({
+          url: url,
+          userId: uid,
+          downloaded: false,
+          processed: false,
+          createdAt: firebase.database.ServerValue.TIMESTAMP
+        });
+        
+        var uploadKey = uploadsRefPush.key;
+        
+        // After upload save the file reference in storage
+        var usersRef = databaseRef.child("users/" + uid + "/uploads/" + uploadKey);
+        usersRef.set({
+          url: url
+        })
+        
+      });
+      // [END oncomplete]
+    }
+
+    window.onload = function() {
+      document.getElementById('file').addEventListener('change', handleFileSelect, false);
+      document.getElementById("progressContainer").style.display = "none";
+      
+      initApp();
+      
+      //document.getElementById('file').disabled = true;
+      
+      
+
+      // Sign the user in anonymously since accessing Storage requires the user to be authorized.
+      /*
+      auth.signInAnonymously().then(function(user) {
+        console.log('Anonymous Sign In Success', user);
+        document.getElementById('file').disabled = false;
+      }).catch(function(error) {
+        console.error('Anonymous Sign In Error', error);
+      });*/
+      
+    }
+  </script>
+</body>
+</html>
